@@ -4,6 +4,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 const refs = {
   gallery: document.querySelector('.js-gallery'),
   loader: document.querySelector('.js-loader'),
+  loadMoreBtn: document.querySelector('.js-load-more'),
 };
 
 export const lightbox = new SimpleLightbox('.gallery a', {
@@ -11,7 +12,7 @@ export const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-export function newGallery(images) {
+export function createGallery(images) {
   const markup = images
     .map(
       ({
@@ -52,4 +53,12 @@ export function showLoader() {
 
 export function hideLoader() {
   refs.loader.classList.add('hidden');
+}
+
+export function showLoadMoreButton() {
+  refs.loadMoreBtn.classList.remove('hidden');
+}
+
+export function hideLoadMoreButton() {
+  refs.loadMoreBtn.classList.add('hidden');
 }
